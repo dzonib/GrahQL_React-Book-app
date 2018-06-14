@@ -17,8 +17,11 @@ const BookList = props => {
           if (loading) return <p>Loading....</p>
           if (error) return  <p>ERROR!!!</p>
 
-          console.log(data)
-          return 'It works :)'
+          return data.books.map( book => 
+            <li key={book.id}>
+              {book.name}
+            </li>
+          )
         }}
         </Query>
       <div>
