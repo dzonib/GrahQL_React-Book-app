@@ -1,18 +1,11 @@
 import React from 'react';
-import gql from 'graphql-tag'
 import {Query} from 'react-apollo'
+import {listBooks} from '../queries/queries'
 
-const BookList = props => {
+const BookList = () => {
   return (
     <div>
-      <Query query={gql`
-        { 
-        books { 
-          name 
-          id 
-          } 
-        } 
-        `}>
+      <Query query={listBooks}>
         {({loading, error, data}) => {
           if (loading) return <p>Loading....</p>
           if (error) return  <p>ERROR!!!</p>
